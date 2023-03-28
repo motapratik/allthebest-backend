@@ -21,6 +21,11 @@ jwt:
   signing_algorithm: HS256
   signing_key_env: SIGNING_KEY_ENV
 
+log:
+  enabled: true
+  filename: allthebest.log
+  logpath: ./
+
 restApiOptions:
   address: http://127.0.0.1:8811
   timeout: 30
