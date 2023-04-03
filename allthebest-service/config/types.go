@@ -1,5 +1,15 @@
 package config
 
+// Config holds data of configuration file
+type Config struct {
+	Server *Server         `yaml:"server"`
+	DB     *DB             `yaml:"db"`
+	JWT    *JWT            `yaml:"jwt"`
+	LOG    *LOG            `yaml:"log"`
+	REST   *RestAPIOptions `yaml:"rest_api_options"`
+	RPC    *RPCOptions     `yaml:"rpc_options"`
+}
+
 // Server contain Server IP/Port configuration parameters
 type Server struct {
 	Name     string `yaml:"name"`

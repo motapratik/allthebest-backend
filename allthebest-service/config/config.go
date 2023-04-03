@@ -13,6 +13,7 @@ type Config struct {
 	Server *Server `yaml:"server"`
 	DB     *DB     `yaml:"db"`
 	JWT    *JWT    `yaml:"jwt"`
+	LOG
 }
 
 // Load returns a *Config with all the configuration data
