@@ -12,13 +12,13 @@ func NewDatabase(cfg *DBConfig) (dbinterface.IDatabase, error) {
 	}
 
 	return &DBConfig{
-		Host:     cfg.Host,
-		Port:     cfg.Port,
-		UserName: cfg.UserName,
-		Password:     cfg.Password,
-		DBName:     cfg.DBName,
-		MinIdleConnections:     cfg.MinIdleConnections,
-		MaxOpenConnections:     cfg.MaxOpenConnections,
-		DebugMode:     cfg.DebugMode,
+		Host:               cfg.Host,
+		Port:               cfg.Port,
+		UserName:           cfg.UserName,
+		Password:           cfg.Password,
+		DBName:             cfg.DBName,
+		MinIdleConnections: cfg.MinIdleConnections,
+		MaxOpenConnections: cfg.MaxOpenConnections,
+		DebugMode:          cfg.DebugMode,
 	}, nil
 }

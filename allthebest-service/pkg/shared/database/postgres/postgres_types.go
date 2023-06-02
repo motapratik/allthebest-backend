@@ -9,12 +9,12 @@ type Database struct {
 }
 
 type DBConfig struct {
-	Host               string `yaml:"host"`
-	Port               int    `yaml:"port"`
-	UserName           string `yaml:"user_name"`
-	Password           string `yaml:"password"`
-	DBName             string `yaml:"db_name"`
-	MinIdleConnections int    `yaml:"min_idle_connections"`
-	MaxOpenConnections int    `yaml:"max_open_connections"`
-	DebugMode          bool   `yaml:"debug_mode"`
+	Host               string `json:"host"`
+	Port               int    `json:"port"`
+	UserName           string `json:"userName"`
+	Password           string `json:"password"`
+	DBName             string `json:"dbName"`
+	MinIdleConnections int    `json:"minIdleConnections"`
+	MaxOpenConnections int    `json:"maxOpenConnections"`
+	DebugMode          bool   `json:"debugMode"`
 }
