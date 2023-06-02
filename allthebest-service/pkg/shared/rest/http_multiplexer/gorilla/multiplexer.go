@@ -42,7 +42,7 @@ func (m *multiplexer) Serve() {
 	m.initialize()
 	err := m.server.ListenAndServe()
 	if err != nil {
-		fmt.Errorf("failed calling ListenAndServe() on http.Server. %s", err.Error())
+		fmt.Errorf("failed calling ListenAndServe() on http.server. %s", err.Error())
 	}
 }
 

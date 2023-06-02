@@ -14,6 +14,12 @@ type Config struct {
 	APIConfig    APIConfig   `json:"APIConfig"`
 }
 
+// envConfig is struct to map env values
+type envConfig struct {
+	DatabasePassword string `mapstructure:"DB_PASS_ENV"`
+	JwtSigningKey    string `mapstructure:"JWT_SIGNING_KEY_ENV"`
+}
+
 // Server contain Server IP/Port configuration parameters
 type Server struct {
 	Name     string `json:"name"`

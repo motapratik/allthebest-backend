@@ -1,5 +1,66 @@
 package config
 
+import (
+	"fmt"
+
+	"github.com/spf13/viper"
+)
+
+func (c *Config) AppAddress() string {
+	return fmt.Sprintf(":%v", c.ServerInfo.HttpPort)
+}
+
+func LoadConfig(environment string) (cfg *Config, err error) {
+	fmt.Printf("Loading Configuration for environment: %s", environment)
+
+	if environment == "" {
+		return nil, fmt.Errorf("environment not specified, got %s", environment)
+	}
+
+	// Load Configuration from JSON File
+	conf, err := GetConfigurationFromJson(environment)
+	if err != nil {
+		panic(err)
+	}
+
+	return conf, nil
+}
+
+func GetConfigurationFromJson(environment string) (cfg *Config, err error) {
+	filePath := fmt.Sprintf("./../../config/%s.json", environment)
+	viper.SetConfigFile(filePath)
+	viper.SetConfigType("json")
+
+	if err := viper.ReadInConfig(); err != nil {
+		panic(err)
+	}
+
+	conf := Config{}
+	err = viper.Unmarshal(&conf)
+	if err != nil {
+		panic(err)
+	}
+
+	return &conf, nil
+}
+
+func GetCredentialsFromEnv(environment string) (cfg *envConfig, err error) {
+	filePath := fmt.Sprintf("./../../config/%s.env", environment)
+	viper.SetConfigFile(filePath)
+	viper.SetConfigType("env")
+
+	if err := viper.ReadInConfig(); err != nil {
+		panic(err)
+	}
+
+	conf := envConfig{}
+	err = viper.Unmarshal(&conf)
+	if err != nil {
+		panic(err)
+	}
+	return &conf, nil
+}
+
 /*
 import (
 	"fmt"
