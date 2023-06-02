@@ -3,13 +3,13 @@ package database
 import "database/sql"
 
 // Database holds connection data
-type Database struct {
-	Host     string
-	Name     string
-	Password string
-	Port     int
-	User     string
-}
+// type Database struct {
+// 	Host     string
+// 	Name     string
+// 	Password string
+// 	Port     int
+// 	User     string
+// }
 
 type DBConnection struct {
 	PostgreSQL *sql.DB
