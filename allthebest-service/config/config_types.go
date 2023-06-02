@@ -7,11 +7,11 @@ import (
 
 // Config holds data of configuration file
 type Config struct {
-	ServerInfo   Server      `json:"serverInfo"`
-	Database     db.DBConfig `json:"database"`
-	JsonWebToken JWT         `json:"jwt"`
-	LogConfig    LOG         `json:"logConfig"`
-	APIConfig    APIConfig   `json:"APIConfig"`
+	ServerInfo Server      `json:"serverInfo"`
+	Database   db.DBConfig `json:"database"`
+	JWT        JWT         `json:"jwt"`
+	LogConfig  LOG         `json:"logConfig"`
+	APIConfig  APIConfig   `json:"APIConfig"`
 }
 
 // envConfig is struct to map env values
@@ -26,15 +26,15 @@ type Server struct {
 	Version             string `json:"version"`
 	HttpPort            int    `json:"httpPort"`
 	Host                string `json:"host"`
-	LoadCredFromEnvFile bool   `json:"loadServerCredentialFromEnvFile"`
+	LoadCredFromEnvFile bool   `json:"loadCredFromEnvFile"`
 }
 
 // JWT contain JWT related configuration parameters
 type JWT struct {
-	Duration         int    `json:"durationMinutes"`
-	RefreshDuration  int    `json:"refreshDurationMinutes"`
-	SigningAlgorithm string `json:"signingAlgorithm"`
-	SigningKeyEnv    string `json:"signingKeyEnv"`
+	DurationMinutes        int    `json:"durationMinutes"`
+	RefreshDurationMinutes int    `json:"refreshDurationMinutes"`
+	SigningAlgorithm       string `json:"signingAlgorithm"`
+	SigningKeyEnv          string `json:"signingKeyEnv"`
 }
 
 // LOG contain logging related configurations
@@ -45,7 +45,7 @@ type LOG struct {
 }
 
 type APIConfig struct {
-	RestOptions rest_client.Options `json:"restAPIOptions"`
+	RestAPIOptions rest_client.Options `json:"restAPIOptions"`
 }
 
 // Config holds data of configuration file

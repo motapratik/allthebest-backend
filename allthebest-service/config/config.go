@@ -50,7 +50,7 @@ func GetConfigurationFromJson(environment, configPath string) (cfg *Config, err 
 
 // GetCredentialsFromEnv used to GET credential information from ENV file
 func GetCredentialsFromEnv(environment, configPath string) (cfg *envConfig, err error) {
-	filePath := fmt.Sprintf("%s/%s.json", configPath, environment)
+	filePath := fmt.Sprintf("%s/%s.env", configPath, environment)
 	viper.SetConfigFile(filePath)
 	viper.SetConfigType("env")
 	if err := viper.ReadInConfig(); err != nil {
@@ -74,12 +74,12 @@ func SetCredentialInformation(environment string, cfgInput *Config, configPath s
 			panic(err)
 		}
 		// SET Credential Details from .Env file
-		cfgInput.JsonWebToken.SigningKeyEnv = cfgEnv.JwtSigningKey
+		cfgInput.JWT.SigningKeyEnv = cfgEnv.JwtSigningKey
 		cfgInput.Database.Password = cfgEnv.DatabasePassword
 
 	} else {
 		// ELSE LOAD FROM ENVIRONMENT VARIABLE
-		cfgInput.JsonWebToken.SigningKeyEnv, _ = utils.GetEnvironmentVariable("SIGNING_KEY_ENV")
+		cfgInput.JWT.SigningKeyEnv, _ = utils.GetEnvironmentVariable("SIGNING_KEY_ENV")
 		cfgInput.Database.Password, _ = utils.GetEnvironmentVariable("DB_PASS_ENV")
 	}
 	return cfgInput, nil

@@ -4,7 +4,7 @@
       "version": "1.0.0",
       "httpPort": 8811,
       "host": "0.0.0.0",
-      "loadServerCredentialFromEnvFile": true
+      "loadCredFromEnvFile": true
     },
     "database": {
       "host": "127.0.0.1",
