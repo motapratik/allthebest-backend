@@ -7,7 +7,7 @@ import (
 
 // Config holds data of configuration file
 type Config struct {
-	ServerInfo   Server      `json:"server"`
+	ServerInfo   Server      `json:"serverInfo"`
 	Database     db.DBConfig `json:"database"`
 	JsonWebToken JWT         `json:"jwt"`
 	LogConfig    LOG         `json:"logConfig"`
@@ -22,25 +22,26 @@ type envConfig struct {
 
 // Server contain Server IP/Port configuration parameters
 type Server struct {
-	Name     string `json:"name"`
-	Version  string `json:"version"`
-	HttpPort int    `json:"httpPort"`
-	Host     string `json:"host"`
+	Name                string `json:"name"`
+	Version             string `json:"version"`
+	HttpPort            int    `json:"httpPort"`
+	Host                string `json:"host"`
+	LoadCredFromEnvFile bool   `json:"loadServerCredentialFromEnvFile"`
 }
 
 // JWT contain JWT related configuration parameters
 type JWT struct {
-	Duration         int    `json:"duration_minutes"`
-	RefreshDuration  int    `json:"refresh_duration_minutes"`
-	SigningAlgorithm string `json:"signing_algorithm"`
-	SigningKeyEnv    string `json:"signing_key_env"`
+	Duration         int    `json:"durationMinutes"`
+	RefreshDuration  int    `json:"refreshDurationMinutes"`
+	SigningAlgorithm string `json:"signingAlgorithm"`
+	SigningKeyEnv    string `json:"signingKeyEnv"`
 }
 
 // LOG contain logging related configurations
 type LOG struct {
 	Enabled  bool   `json:"enabled"`
-	Filename string `json:"file_name"`
-	Logpath  string `json:"log_path"`
+	Filename string `json:"fileName"`
+	LogPath  string `json:"logPath"`
 }
 
 type APIConfig struct {

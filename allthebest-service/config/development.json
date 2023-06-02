@@ -1,36 +1,41 @@
 {
-    "server": {
+    "serverInfo": {
       "name": "allthebest-service",
       "version": "1.0.0",
       "httpPort": 8811,
-      "host": "0.0.0.0"
+      "host": "0.0.0.0",
+      "loadServerCredentialFromEnvFile": true
     },
     "database": {
-      "username": "postgres",
-      "password": "DB_PASS_ENV",
-      "name": "DemoDatabase",
-      "schema": "public",
       "host": "127.0.0.1",
       "port": 5432,
+      "userName": "postgres",
+      "password": "DB_PASS_ENV",
+      "dbName": "DemoDatabase",
       "minIdleConnections": 10,
       "maxOpenConnections": 30,
       "debugMode": false
     },
     "jwt": {
-        "duration_minutes": 15,
-        "refresh_duration_minutes": 15,
-        "signing_algorithm": "HS256",
-        "signing_key_env": "SIGNING_KEY_ENV"
-      },
+      "durationMinutes": 15,
+      "refreshDurationMinutes": 15,
+      "signingAlgorithm": "HS256",
+      "signingKeyEnv": "SIGNING_KEY_ENV"
+    },
+    "logConfig":{
+      "enabled": true,
+      "fileName": "allthebest.log",
+      "logPath": "./"
+    },
     "APIConfig": {
-        "restAPIOptions": {
-          "address": "http://127.0.0.1:8811",
-          "timeout": 30,
-          "debugMode": false,
-          "withProxy": false,
-          "skipTLS": true,
-          "skipCheckRedirect": false
-        }
+      "restAPIOptions": {
+        "address": "http://127.0.0.1:8811",
+        "timeout": 30,
+        "debugMode": false,
+        "withProxy": false,
+        "skipTLS": true,
+        "proxyAddress": "127.0.0.1",
+        "skipCheckRedirect": false
+      }
     }
   }
-  

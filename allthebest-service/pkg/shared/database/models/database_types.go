@@ -18,10 +18,10 @@ type DBConnection struct {
 type DBConfig struct {
 	Host               string `json:"host"`
 	Port               int    `json:"port"`
-	UserName           string `json:"user_name"`
+	UserName           string `json:"userName"`
 	Password           string `json:"password"`
-	DBName             string `json:"db_name"`
-	MinIdleConnections int    `json:"min_idle_connections"`
-	MaxOpenConnections int    `json:"max_open_connections"`
-	DebugMode          bool   `json:"debug_mode"`
+	DBName             string `json:"dbName"`
+	MinIdleConnections int    `json:"minIdleConnections"`
+	MaxOpenConnections int    `json:"maxOpenConnections"`
+	DebugMode          bool   `json:"debugMode"`
 }
